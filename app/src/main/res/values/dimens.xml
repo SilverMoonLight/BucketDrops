@@ -6,4 +6,5 @@
     <dimen name="add_drop_btn_stroke_width">1dp</dimen>
     <dimen name="title_vertical_margin">36dp</dimen>
     <dimen name="title_font_size">18sp</dimen>
+    <dimen name="add_drop_font_size">28sp</dimen>
 </resources>

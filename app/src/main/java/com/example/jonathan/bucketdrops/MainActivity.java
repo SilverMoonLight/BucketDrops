@@ -11,6 +11,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.jonathan.bucketdrops.adapters.AdapterDrops;
+import com.example.jonathan.bucketdrops.adapters.AddListener;
+import com.example.jonathan.bucketdrops.adapters.Divider;
 import com.example.jonathan.bucketdrops.beans.Drop;
 import com.example.jonathan.bucketdrops.widgets.BucketRecyclerView;
 
@@ -28,9 +30,17 @@ public class MainActivity extends AppCompatActivity  {
     AdapterDrops mAdapter;
     View mEmptyView;
 
+
     private View.OnClickListener mBtnAddListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            showDialogAdd();
+        }
+    };
+
+    private AddListener mAddListener = new AddListener() {
+        @Override
+        public void add() {
             showDialogAdd();
         }
     };
@@ -66,9 +76,10 @@ public class MainActivity extends AppCompatActivity  {
         setSupportActionBar(mToolbar);
         mBtnAdd = (Button) findViewById(R.id.add_btn);
         mRecycler = (BucketRecyclerView) findViewById(R.id.rv_drops);
+        mRecycler.addItemDecoration(new Divider(this, LinearLayoutManager.VERTICAL));
         mRecycler.hideIfEmpty(mToolbar);
         mRecycler.showIfEmpty(mEmptyView);
-        mAdapter = new AdapterDrops(this, mResults);
+        mAdapter = new AdapterDrops(this, mResults, mAddListener);
         mRecycler.setAdapter(mAdapter);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
         mBtnAdd.setOnClickListener(mBtnAddListener);
