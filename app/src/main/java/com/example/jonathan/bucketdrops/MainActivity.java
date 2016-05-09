@@ -17,9 +17,14 @@ public class MainActivity extends AppCompatActivity  {
     private View.OnClickListener mBtnAddListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            showDialogAdd();
         }
     };
+
+    private void showDialogAdd() {
+        DialogAdd dialogAdd = new DialogAdd();
+        dialogAdd.show(getSupportFragmentManager(), "Add");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
