@@ -7,7 +7,9 @@ import io.realm.annotations.PrimaryKey;
  * Created by Jonathan on 5/9/2016.
  */
 public class Drop extends RealmObject {
+
     private String what;
+
     @PrimaryKey
     private long added;
     private long when;

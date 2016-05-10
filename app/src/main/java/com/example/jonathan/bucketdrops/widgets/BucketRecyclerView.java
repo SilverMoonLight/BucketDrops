@@ -94,11 +94,11 @@ public class BucketRecyclerView extends RecyclerView{
         mObserver.onChanged();
     }
 
-    public void hideIfEmpty(View ...views) {
+    public void hideIfEmpty(View... views) {
         mNonEmptyViews = Arrays.asList(views);
     }
 
-    public void showIfEmpty(View ...emptyView) {
+    public void showIfEmpty(View... emptyView) {
         mEmptyViews = Arrays.asList(emptyView);
     }
 }
